@@ -1,0 +1,136 @@
+
+
+//DOM Transversal Variables
+
+
+/*Corner reference buttons for highscore and timer*/
+   var timeLeft = document.getElementById("timer");
+   var scoreCheck = document.querySelector("#highscore-check");
+
+
+ /*Intro Page-Section HTML Elements*/
+    var introPage = document.querySelector("#introduction-page");
+    var welcomeMessage = document.querySelector("#introduction");
+    var startBtn = document.querySelector("#start-button");
+
+    
+/*Question Page-Section HTML Elements*/
+    var questionPage = document.querySelector("#question-page");
+    var askQuestion = document.querySelector("#question");
+
+    
+/*Question Body-Section HTML Elements*/
+    var choicesButtons = document.querySelectorAll(".choices");
+    var answerBtn1 = document.querySelector("#answer1");
+    var answerBtn2 = document.querySelector("#answer2");
+    var answerBtn3 = document.querySelector("#answer3");
+    var answerBtn4 = document.querySelector("#answer4");
+
+    
+/*Question Accuracy-Section HTML Elements*/
+    var feedbackLine = document.querySelector("#feedback");
+ 
+    
+/*Score Report Page-Section HTML Elements*/
+    var scoreBoard = document.querySelector("#submission-page");
+    var finalScore = document.querySelector("#final-score");
+    var userInitials = document.querySelector("#initial");
+    var submitBtn = document.querySelector("#submit-btn");
+    var finish = document.querySelector("#finish");
+    
+
+/*High Score Page-Section HTML Elements*/
+    var highScorePage = document.querySelector("#highscore-page");
+    var scoreRecord = document.querySelector("#score-record"); 
+    var backBtn =document.querySelector("#back-btn");
+    var clearBtn=document.querySelector("#clear-btn");
+    
+    
+//Define question array of question objects
+    var questionArray = [
+        {
+            question: "Question 1 : Which property can you use in order to implement event delegation?",
+            choices: ["a. event.target", "b. event.preventDefault()", "c. event.stopPropagation()", "d. event.addEventListener"],
+            answer: "a"
+        },
+        {
+            question: "Question 2 : Which statement best describes what is happening to data when it is persisted to local storage?",
+            choices: ["a. The data is stored under the Applications tab in Chrome Dev Tools.", "b. The data is stored in the client or browser.", "c. The data is stored in the database in the backend.", "d. The data is stored in the window called localStorage."],
+            answer: "b"
+        },
+        {
+            question: "Question 3 : You need to retrieve data with the key name of 'formData' from local storage and convert it into an object. How would you accomplish this?", 
+            choices: ["a. var formData = JSON.stringify(localStorage.getItem('formData'))", "b. var formData = JSON.parse('formData')", "c. var formData = JSON.parse(localStorage.setItem('formData'))", "d. var formData = JSON.parse(localStorage.getItem('formData'))"],
+            answer: "d"
+        },
+        {
+            question: "Question 4 : You just finished the feature that you've been working on and successfully merged your branch, feature-52. How would you delete branch, feature-52?",
+            choices: ["a. git branch -d feature-52", "b. git branch feature-52", "c. git checkout feature-52", "d. git merge feature-52"],
+            answer: "a"
+        },
+        {
+            question: "Question 5 : What are the six primitive data types in JavaScript?",
+            choices: ["a. string, number, boolean, bigInt, symbol, undefined", "b. sentence, float, data, bigint, symbol, undefined", "c. sentence, int, truthy, bigInt, symbol, undefined", "d. string, num, falsy, bigInt, symbol, undefined"],
+            answer: "a"
+        },
+        {
+            question: "Question 6 : How do we declare a conditional statement in JavaScript?",
+            choices: ["a. while loop", "b. for loop", "c. difference...between", "d. if...else"],
+            answer: "d"
+        },
+        {
+            question: "Question 7 : From the given array, which index is the letter 'b' on? ['a','b','c','d']",
+            choices: ["a. 2", "b. 3", "c. 0", "d. 1"],
+            answer: "d"
+        },
+        {
+            question: "Question 8 : What are the two types of scope JavaScript uses?",
+            choices: ["a. Abroad and local", "b. Outside and Inside", "c. Global and Local", "d. Surrounding and Inner"],
+            answer: "c"
+        }
+    ];
+
+    
+    //Miscellaneous variables to be used in quiz-related task functions
+    var secondsLeft = 75;
+    var questionNumber = 0;
+    var totalScore = 0;
+    var questionCount = 1;
+
+
+    /*Start of Functions*/
+
+    //Function to begin countdown after user begin quiz
+    function countdown() {
+            
+            var timerInterval = setInterval(function () {
+    
+              secondsLeft--;
+              timeLeft.textContent = "Time left: " + secondsLeft + " s";
+        
+                if (secondsLeft <= 0){
+                    clearInterval(timerInterval);
+                    timeLeft.textContent = "Time is up!"; 
+
+    // If clock runs out of time, show on score board section instead
+                    finish.textContent = "Time is up!";
+                    gameOver();
+    
+                } else  if(questionCount >= questionArray.length +1) {
+                    clearInterval(timerInterval);
+                    gameOver();
+                    } 
+        }, 1000);
+    }
+    
+    //Function to start quiz and begin countdown + begin running through questions
+    function startQuiz () {
+            introPage.style.display = "none";
+            questionPage.style.display = "block";
+            questionNumber = 0
+            countdown();
+            displayQuestion(questionNumber);
+          
+    }
+        
+   
