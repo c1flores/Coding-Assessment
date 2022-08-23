@@ -81,7 +81,6 @@ function displayQuestion(n)
     Call respective answer button dom transversal variables and set text contents to index into question's answer choices
 
     Set question number = argument variable
-
 ```
 #### Create answer check function.
 
