@@ -47,13 +47,13 @@ var questionArray = [
 ``` 
 function countdown() 
 
-    Begin deducting seconds from timer.
+    Begin deducting seconds from timer
 
-    If secondsLeft is less than or equal to 0
+    if secondsLeft is less than or equal to 0
         clear time interval and display "time is up" message
 
     else if questionCount is greater than or equal to questionArray length
-        clear time interval and prompt game over function
+        clear time interval and prompt quizOver function
 
 ```
 
@@ -62,13 +62,58 @@ function countdown()
 ```
 function startQuiz()
 
-    Call relevant dom transversal variables so that correct page renders to the screen
+    Call relevant intro page dom transversal variables so that correct section renders to the screen
 
     Set questionNumber = 0
 
-    prompt countdown() function
+    Prompt countdown() function
 
-    prompt displayQuestion() function to start from first entry in question array
+    Prompt displayQuestion() function to start from first entry in question array
 ```
 
+#### Create question display function.
+
+```
+function displayQuestion(n)
+
+    Call question dom transversal variables and set text content to index into questionArray beginning with the first entry's question property value
+
+    Call respective answer button dom transversal variables and set text contents to index into question's answer choices
+
+    Set question number = argument variable
+
+```
+#### Create answer check function.
+
+```
+function checkAnswer(event)
+
+    Call relevant question feedback dom transversal variable so that question feedback renders to the screen
+
+    if questionArray entry answer value matches event target value
+        notify user that they are correct
+        increment totalScore by 1
+
+     else
+        deduct 10 from secondsLeft
+        notify the user that they are wrong and give them the correct answer
+
+    if questionNumber value is less than the index of the last entry from questionArray
+        display next question
+
+    else
+        end quiz
+```
+
+#### Create quiz over function.
+
+```
+function quizOver()
+
+    Call relevant score submission dom transversal variables so that submission page renders to the screen
+
+    Set finalScore text content so that totalScore is displayed
+
+    Call timer dom transversal variable so that timer is no longer visible
+```
 

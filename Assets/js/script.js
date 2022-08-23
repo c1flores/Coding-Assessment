@@ -107,30 +107,85 @@
     
               secondsLeft--;
               timeLeft.textContent = "Time left: " + secondsLeft + " s";
-        
+    
+              //If no time is left, clear time-tracker
                 if (secondsLeft <= 0){
                     clearInterval(timerInterval);
                     timeLeft.textContent = "Time is up!"; 
 
     // If clock runs out of time, show on score board section instead
                     finish.textContent = "Time is up!";
-                    gameOver();
+                    quizOver();
     
+                //If no more questions are left, clear time-tracker and end quiz
                 } else  if(questionCount >= questionArray.length +1) {
                     clearInterval(timerInterval);
-                    gameOver();
+                    quizOver();
                     } 
         }, 1000);
     }
     
     //Function to start quiz and begin countdown + begin running through questions
     function startQuiz () {
+
+            //Display question section
             introPage.style.display = "none";
             questionPage.style.display = "block";
             questionNumber = 0
             countdown();
             displayQuestion(questionNumber);
           
+    }
+    
+    //Function to display questions with respective answer choices
+    function displayQuestion (n) {
+        askQuestion.textContent = questionArray[n].question;
+        answerBtn1.textContent = questionArray[n].choices[0];
+        answerBtn2.textContent = questionArray[n].choices[1];
+        answerBtn3.textContent = questionArray[n].choices[2];
+        answerBtn4.textContent = questionArray[n].choices[3];
+        questionNumber = n;
+
+    }
+
+    //Function to check if user-selected answer is correct or wrong 
+    function checkAnswer(event) {
+        event/preventDefault();
+
+        //Display question feedback section and hide after one millisecond
+        feedbackLine.style.display = "block";
+        setTimeout(function () {
+            feedbackLine.style.display = 'none';
+        }, 1000);
+
+        //Compare array entry for respective answer and assess if it matches user-selected answer
+        if (questionArray[questionNumber].answer == event.target.value) {
+            feedbackLine.textContent = "Correct";
+            totalScore = totalScore + 1;
+        }
+        else {
+            secondsLeft = secondsLeft - 10;
+            feedbackLine.textContent ="Wrong! The correct answer is " + questionArray[questionNumber].answer + " .";
+        }
+
+        //After question feedback, move onto next question. If there are no more questions, end the quiz. 
+        if (questionNumber < questionArray.length - 1) {
+            displayQuestion(questionNumber + 1);
+        } 
+         else {
+            quizOver();
+         }
+
+    }
+
+    //Function to end the quiz
+    function quizOver () {
+
+        //Display score submission section and hide timer
+        questionPage.style.display = "none";
+        scoreBoard.style.display = "block";
+        finalScore.textContent = "Your final score is :" + totalScore;
+        timeLeft.display = "none";
     }
         
    
