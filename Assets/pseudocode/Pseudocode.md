@@ -188,7 +188,7 @@ function saveScore()
 ```
 
 
-#### Add all event listeners for button functionality and proper page display/
+#### Add all event listeners for button functionality and proper page display.
 
      startbtn...
      choicesButtons...
