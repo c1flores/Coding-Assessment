@@ -188,4 +188,58 @@
         timeLeft.display = "none";
     }
         
+//Function to retrieve current score with respective set of initials from local storage
+function retrieveScore () {
+    var currentList = localStorage.getItem("ScoreList");
+
+    //If list of added scores is not empty, parse score entries and return the new array of parsed scores
+    if(currentList !== null) {
+    var newList = JSON.parse(currentList);
+    return newList;
+    }
+    else {
+        newList = [];
+    }
+return newList;
+};
+
+//Function to render score to screen
+function renderScore () {
+    scoreRecord.innerHTML = "";
+    scoreRecord.style.display = "block";
+    var highScores = rank();
+    var topScores = highScores.slice(0,5);
+
+    //For entries in sliced array, set each entry equal to list item in high score page
+    for (var i=o; i < topScores.length; i++) {
+        var scoreEntry = highScores[i];
+
+        var li = document.createElement("li");
+        li.textContent = scoreEntry.user + " - " + scoreEntry.score;
+        li.setAttribute("data-set", i);
+        scoreRecord.appendChild(li)
+    }
+}
+
+//Function to sort through scores and rank the highscore list
+function rank () {
+    var listToSort = retrieveScore();
+
+    //If there are no parsed scores, return nothing. Else, return list from highest to lowest
+    if (retrieveScore == null) {
+        return;
+    }
+    else {
+        listToSort.rank(function(a,b) {
+            return b.score - a.score;
+        })
+        return listToSort;
+    }
+    };
+
+    
+
+
+
+
    

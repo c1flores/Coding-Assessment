@@ -116,3 +116,50 @@ function quizOver()
     Call timer dom transversal variable so that timer is no longer visible
 ```
 
+#### Create score retrieval function.
+
+```
+function retrieveScore()
+
+    Initialize currentList variable to get scores from local storage attribute created in addScore function
+
+    If the list of scores is not empty
+        parse entries and place entries in newList variable
+
+    else
+        return empty list
+
+    Return newList
+
+```
+
+#### Create score rendering function.
+
+```
+function renderScore()
+
+    Call relevant high score section dom transversal variables so that scores render to the screen
+
+    Set highScores variable = to rank function so that a ranked array is returned upon variable reference
+
+    Slice ranked array to only include top five entries and set each entry equal to variable to be used in appending list item
+
+    Create list item, set text content of list item equal to user entry, set score attribute to list element, and append list item to appropriate dom transversal variable
+```
+
+#### Create score ranking function.
+
+```
+function rank()
+
+    Set listToSort variable = to retrieveScore function so that an array of scores is returned
+
+    If the array of scores is empty
+        return nothing
+
+    Else 
+        return the reverse of array of scores
+
+    Return  (hopefully) updated listToSort variable
+```
+
