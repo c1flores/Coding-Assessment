@@ -160,6 +160,40 @@ function rank()
     Else 
         return the reverse of array of scores
 
-    Return  (hopefully) updated listToSort variable
+    Return (hopefully) updated listToSort variable
 ```
+
+#### Create score adding function.
+
+```
+function addScore(n)
+
+    Set addedScores variable = retrieveScore() function so that local storage entries are received
+
+    Call variable and push arbitrary argument variable into variable (local storage list) 
+
+    Set item in local storage to "List" object
+```
+
+#### Create score saving function.
+
+```
+function saveScore()
+
+    Create scoreInput object and set user and score properties to appropriate variables
+
+    Call addScore function while passing in scoreInput object
+
+    call renderScore function so that score is displayed
+```
+
+
+#### Add all event listeners for button functionality and proper page display/
+
+     startbtn...
+     choicesButtons...
+     submitBtn...
+     scoreCheck...
+     backBtn...
+     clearBtn...
 
