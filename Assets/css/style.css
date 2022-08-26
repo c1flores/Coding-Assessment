@@ -28,6 +28,12 @@ footer {
   text-align: center;
 }
 
+ #instruction {
+
+  font-size: large;
+
+}
+
 .question-page {
   display:flex;
   flex-direction: column;
