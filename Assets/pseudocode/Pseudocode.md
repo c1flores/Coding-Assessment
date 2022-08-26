@@ -25,7 +25,7 @@ var(s):  intro page elements...
 ```
 var questionArray = [
     {
-        question1:
+        question:
         choices:
         answer:
     }
