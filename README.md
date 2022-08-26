@@ -8,4 +8,5 @@ Coding assessments are an important part of the interview process for developers
 (To do)
 
 ## Screen Capture
-(To do)
+![](https://user-images.githubusercontent.com/81927296/186826268-e388b365-52c4-4a12-93f9-ea4862cf9ce7.gif)
+
