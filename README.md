@@ -6,10 +6,6 @@ This repository is an exhibition of a timed coding quiz with multiple-choice que
 
 Coding assessments are an important part of the interview process for developers. In fact, employers often use them to filter out job candidates with a cut-off score. Taking advantage of these opportunities should help prepare applicants to shine during the technical interview process!
 
-## Live application
-
-[Deployed Application](https://c1flores.github.io/Coding-Assessment/)
-
 ## Technologies Used
 
 <div style="display: inline_block"><br>
@@ -26,3 +22,8 @@ Coding assessments are an important part of the interview process for developers
 ## Screen Capture
 
 ![](https://user-images.githubusercontent.com/81927296/186826268-e388b365-52c4-4a12-93f9-ea4862cf9ce7.gif)
+
+
+## Live application
+
+[Deployed Application](https://c1flores.github.io/Coding-Assessment/)
